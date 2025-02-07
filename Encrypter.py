@@ -78,7 +78,10 @@ def main():
         if choice == "1":
             file_path = input("Ingrese la ruta")
             if os.path.exists(file_path):
-                encrypt_file(file_path, cipher)
+                if not ".enc" in file_path:
+                    encrypt_file(file_path, cipher)
+                else:
+                    print("No puedes encriptar un archivo ya encriptado")
             else:
                 print("Archivo no encontrado")
         

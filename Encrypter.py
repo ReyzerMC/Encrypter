@@ -4,6 +4,7 @@ import base64
 import json
 from cryptography.fernet import Fernet
 from getpass import getpass
+from colorama import init, Fore, Style
 
 ENCRYPTED_DIR = "encrypted"
 KEY_FILE = "key.json"
@@ -72,7 +73,7 @@ def main():
     cipher = Fernet(key)
 
     while True:
-        print("\n[1] Encriptar archivo\n[2] Desencriptar archivo\n[3] Salir")
+        print(f"\n{Style.BRIGHT}[{Fore.CYAN}1{Fore.RESET}] {Fore.GREEN}Encriptar archivo{Fore.RESET}\n[{Fore.CYAN}2{Fore.RESET}] {Fore.GREEN}Desencriptar archivo{Fore.RESET}\n[{Fore.RED}3{Fore.RESET}] {Fore.RED}Salir{Fore.RESET}")
         choice = input("Seleccione una opcion: ")
 
         if choice == "1":
